@@ -1,1 +1,9 @@
-$body-bg: #123456;
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+$body-bg: #fff;
+$primary: lightgreen;
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-monospace: 'IBM Plex Mono', monospace;
+
+@import "~bootstrap/scss/bootstrap";
