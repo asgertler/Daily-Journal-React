@@ -19,21 +19,22 @@ export const List = () => {
     }, [])
 
     return (
-        <>
-            <h4>Christmas List</h4>
-            <Container fluid>
+        <Container fluid>
+            <form className="form">
+                <h2>Christmas List</h2>
                 <Row>
                     {
                         listArray.map(item => {
                             return (
-                                <Col key={item.fbid} className='bgcolor' xs={12} md={6} lg={4} xl={2}>
-                                    <h5>{item.title}</h5>
+                                <Col key={item.fbid} className='bgcolor inputGroup' xs={12} md={6} lg={4} xl={2}>
+                                    <input id={item.fbid} name="option2" type="checkbox" />
+                                    <label htmlFor={item.fbid}>{item.title}</label>
                                 </Col>
                             )
                         })
                     }
                 </Row>
-            </Container>
-        </>
+            </form>
+        </Container>
     )
 }
