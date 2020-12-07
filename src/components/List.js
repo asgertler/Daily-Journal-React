@@ -26,6 +26,16 @@ export const List = () => {
             })
     }, [])
 
+    const handleCheckChange = evt => {
+        let newListArray = [...alphaArray]
+        newListArray.map(item => {
+            if (item.fbid === evt.target.id) {
+                item.checked = item.checked ? false : true
+            }
+            return item
+        })
+    }
+
     return (
         <Container fluid>
             <form className="form">
@@ -43,6 +53,7 @@ export const List = () => {
                                         id={item.fbid}
                                         type="checkbox"
                                         checked={item.checked}
+                                        onChange={handleCheckChange}
                                     />
                                     <label htmlFor={item.fbid}>{item.title}</label>
                                 </Col>
