@@ -37,9 +37,13 @@ export const List = () => {
                 {
                     alphaArray.map(item => {
                         return (
-                            <Row>
-                                <Col key={item.fbid} className='bgcolor inputGroup' xs={12} md={12} lg={12} xl={12}>
-                                    <input id={item.fbid} name="option2" type="checkbox" />
+                            <Row key={item.fbid} className='bgcolor inputGroup'>
+                                <Col className='formCol'>
+                                    <input
+                                        id={item.fbid}
+                                        type="checkbox"
+                                        checked={item.checked}
+                                    />
                                     <label htmlFor={item.fbid}>{item.title}</label>
                                 </Col>
                             </Row>
