@@ -34,19 +34,18 @@ export const List = () => {
                 <ProgressBar animated
                     now={`${listArray.length * 10}`}
                     label={`${listArray.length * 10}%`} />
-
-                <Row>
-                    {
-                        alphaArray.map(item => {
-                            return (
-                                <Col key={item.fbid} className='bgcolor inputGroup' xs={12} md={6} lg={4} xl={2}>
+                {
+                    alphaArray.map(item => {
+                        return (
+                            <Row>
+                                <Col key={item.fbid} className='bgcolor inputGroup' xs={12} md={12} lg={12} xl={12}>
                                     <input id={item.fbid} name="option2" type="checkbox" />
                                     <label htmlFor={item.fbid}>{item.title}</label>
                                 </Col>
-                            )
-                        })
-                    }
-                </Row>
+                            </Row>
+                        )
+                    })
+                }
             </form>
         </Container>
     )
