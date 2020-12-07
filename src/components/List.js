@@ -2,10 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { getAll } from '../modules/APICalls'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row'
 
 export const List = () => {
     const [listArray, setListArray] = useState([])
+
+    const alphaArray = [...listArray].sort(function (a, b) {
+        let textA = a.title.toUpperCase()
+        let textB = b.title.toUpperCase()
+
+        return textA.localeCompare(textB)
+    })
 
     useEffect(() => {
         getAll()
@@ -22,9 +30,14 @@ export const List = () => {
         <Container fluid>
             <form className="form">
                 <h2>Christmas List</h2>
+
+                <ProgressBar animated
+                    now={`${listArray.length * 10}`}
+                    label={`${listArray.length * 10}%`} />
+
                 <Row>
                     {
-                        listArray.map(item => {
+                        alphaArray.map(item => {
                             return (
                                 <Col key={item.fbid} className='bgcolor inputGroup' xs={12} md={6} lg={4} xl={2}>
                                     <input id={item.fbid} name="option2" type="checkbox" />
